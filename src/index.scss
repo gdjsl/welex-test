@@ -1,0 +1,40 @@
+html{
+  height:100%;
+  width:100%;
+  *{-webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */}
+  body {
+    height:100%;
+    width:100%;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    div#root{
+      height:100%;
+      width:100%;
+    }
+    div.login-paper{
+      overflow: hidden;
+      h1{
+        margin-bottom:0%;
+        margin-top:10%;
+      }
+      h2{
+        text-transform:uppercase;
+        font-size:85%;
+        color:gray;
+        margin-bottom:5%;
+      }
+      span.error-msg{
+        display:block;
+        margin-top:5%;
+        color:rgb(244, 67, 54);
+      }
+    }
+  }
+}
