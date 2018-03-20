@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-class User extends React.Component{
+class PO extends React.Component{
     render(){
         return(
             <div className="route-container">
                 <div className="head">
                     <div className="title">
-                        <span>Users</span>
+                        <span>Purchase Orders</span>
                     </div>
                 </div>
                 <div className="body"></div>
@@ -16,4 +16,4 @@ class User extends React.Component{
     }
 }
 
-export default User;
+export default PO;

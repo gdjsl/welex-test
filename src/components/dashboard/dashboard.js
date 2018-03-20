@@ -90,49 +90,99 @@ class Dashboard extends React.Component {
         }
     }
     render() {
-        // console.log("this is from dashboard.js render()",this.state);
         return (
-            <div className="dashboard-container">
-                <CardList
-                    url="https://jsonplaceholder.typicode.com/users"
-                    icon={<UsersIcon />}
-                    clickevent={this.chooseUser}
-                    selected={this.state.selectedUser}
-                    title="Users"
-                    activedata={false}
-                    cols={["id", "name"]}
-                    filterables={["name"]} />
-                <CardList
-                    url="https://jsonplaceholder.typicode.com/users"
-                    icon={<ProjectsIcon />}
-                    clickevent={this.chooseProject}
-                    selected={this.state.selectedProject}
-                    prefilter={this.state.prefilterProj}
-                    title="Projects"
-                    activedata={true}
-                    cols={["id", "email"]}
-                    filterables={["email"]} />
-                <CardList
-                    url="https://jsonplaceholder.typicode.com/users"
-                    icon={<POIcon />}
-                    clickevent={this.choosePO}
-                    selected={this.state.selectedPO}
-                    prefilter={this.state.prefilterPO}
-                    title="Purchase Orders"
-                    activedata={true}
-                    cols={["id", "website"]}
-                    filterables={["website"]} />
-                <CardList
-                    url="https://jsonplaceholder.typicode.com/users"
-                    icon={<DRIcon />}
-                    prefilter={this.state.prefilterDR}
-                    title="Delivery Reports"
-                    activedata={false}
-                    cols={["id", "phone"]}
-                    filterables={["phone"]} />
+            <div className="route-container">
+                <div className="head">
+                    <div className="title">
+                        <span>Dashboard</span>
+                    </div>
+                </div>
+                <div className="body">
+                    <CardList
+                        url="https://jsonplaceholder.typicode.com/users"
+                        icon={<UsersIcon />}
+                        clickevent={this.chooseUser}
+                        selected={this.state.selectedUser}
+                        title="Users"
+                        activedata={false}
+                        cols={["id", "name"]}
+                        filterables={["name"]} />
+                    <CardList
+                        url="https://jsonplaceholder.typicode.com/users"
+                        icon={<ProjectsIcon />}
+                        clickevent={this.chooseProject}
+                        selected={this.state.selectedProject}
+                        prefilter={this.state.prefilterProj}
+                        title="Projects"
+                        activedata={true}
+                        cols={["id", "email"]}
+                        filterables={["email"]} />
+                    <CardList
+                        url="https://jsonplaceholder.typicode.com/users"
+                        icon={<POIcon />}
+                        clickevent={this.choosePO}
+                        selected={this.state.selectedPO}
+                        prefilter={this.state.prefilterPO}
+                        title="Purchase Orders"
+                        activedata={true}
+                        cols={["id", "website"]}
+                        filterables={["website"]} />
+                    <CardList
+                        url="https://jsonplaceholder.typicode.com/users"
+                        icon={<DRIcon />}
+                        prefilter={this.state.prefilterDR}
+                        title="Delivery Reports"
+                        activedata={false}
+                        cols={["id", "phone"]}
+                        filterables={["phone"]} />
+                </div>
             </div>
         );
     }
+    // render() {
+    //     // console.log("this is from dashboard.js render()",this.state);
+    //     return (
+    //         <div className="dashboard-container">
+    //             <CardList
+    //                 url="https://jsonplaceholder.typicode.com/users"
+    //                 icon={<UsersIcon />}
+    //                 clickevent={this.chooseUser}
+    //                 selected={this.state.selectedUser}
+    //                 title="Users"
+    //                 activedata={false}
+    //                 cols={["id", "name"]}
+    //                 filterables={["name"]} />
+    //             <CardList
+    //                 url="https://jsonplaceholder.typicode.com/users"
+    //                 icon={<ProjectsIcon />}
+    //                 clickevent={this.chooseProject}
+    //                 selected={this.state.selectedProject}
+    //                 prefilter={this.state.prefilterProj}
+    //                 title="Projects"
+    //                 activedata={true}
+    //                 cols={["id", "email"]}
+    //                 filterables={["email"]} />
+    //             <CardList
+    //                 url="https://jsonplaceholder.typicode.com/users"
+    //                 icon={<POIcon />}
+    //                 clickevent={this.choosePO}
+    //                 selected={this.state.selectedPO}
+    //                 prefilter={this.state.prefilterPO}
+    //                 title="Purchase Orders"
+    //                 activedata={true}
+    //                 cols={["id", "website"]}
+    //                 filterables={["website"]} />
+    //             <CardList
+    //                 url="https://jsonplaceholder.typicode.com/users"
+    //                 icon={<DRIcon />}
+    //                 prefilter={this.state.prefilterDR}
+    //                 title="Delivery Reports"
+    //                 activedata={false}
+    //                 cols={["id", "phone"]}
+    //                 filterables={["phone"]} />
+    //         </div>
+    //     );
+    // }
 }
 
 export default Dashboard;

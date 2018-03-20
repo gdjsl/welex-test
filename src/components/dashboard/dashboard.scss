@@ -1,313 +1,339 @@
-$primary-color: #01a982;
+$primary-color: rgba(4, 4, 4, 0.7);
 $subtle-color: rgba(4, 4, 4, 0.5);
 $error-color:#FF5722;
-div.dashboard-container {
-    position: relative;
-    flex-grow: 1;
+div.route-container {
+    flex: 1 0;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: stretch;
-    div.column {
-        flex: 0 0 24.4%;
-        margin: 0.5%;
+    margin-left: 5%;
+    >div.head {
+        flex: 0 0 10%;
         display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+        flex-direction: row;
+        justify-content: flex-start;
         align-items: stretch;
-        .card-data {
-            flex: 0 0 20%;
-            border-radius: 10px !important;
-            background-color: rgba(240, 240, 240, 1) !important;
+        >div.title {
+            flex: 1 0;
             display: flex;
             flex-direction: row;
-            justify-content: space-between;
-            align-items: stretch;
-            position: relative;
-            overflow: hidden;
-            div.line {
-                position: absolute !important;
-                top: 0;
-            }
-            >div.details {
-                flex: 1 0 auto;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: flex-start;
-                width: 60% !important;
-                height: 100%;
-                z-index: 4;
-                padding-left: 2%;
-                margin-left: 2% !important;
-                background-color: transparent !important;
-                span.title {
-                    color: $primary-color !important;
-                    font-size: 120%;
-                    flex: 0 0 auto;
-                }
-                span.subtitle {
-                    color: $primary-color !important;
-                    flex: 0 0 auto;
-                    font-size: 90%;
-                }
-                div.active-data {
-                    width: 95%;
-                    padding: 3% 0 0 0;
-                    border-top: 0.5px solid rgba(1, 169, 130, 0.7);
-                    margin-top: 3%;
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: space-between;
-                    align-items: center;
-                    span.value {
-                        color: $primary-color !important;
-                        font-size: 70%;
-                        flex: 0 0 auto;
-                        text-align: right;
-                    }
-                    span.title {
-                        color: $primary-color !important;
-                        flex: 0 0 auto;
-                        text-align: left;
-                        font-size: 70%;
-                    }
-                }
-            }
-            >div.badge {
-                margin-left: 5%;
-                flex: 0 0 20%;
-                z-index: 5;
-                height: 100%;
-                background-color: transparent !important;
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                align-items: center;
-                svg {
-                    height: 100% !important;
-                    width: 100% !important;
-                    fill: $primary-color !important;
-                }
+            justify-content: flex-start;
+            align-items: center;
+            >span {
+                font-size: 150%;
+                color: rgba(4, 4, 4, 0.7);
             }
         }
-        .card-item {
-            border-radius: 10px 10px 0 0 !important;
-            background-color: rgb(250, 250, 250) !important;
-            flex: 0 0 79%;
+    }
+    >div.body {
+        flex: 1 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: stretch;
+        div.column {
+            flex: 0 0 23%;
+            margin: 0 0.5% 2% 0.5%;
             display: flex;
             flex-direction: column;
-            position: relative;
-            div.head {
-                flex: 0 0 7%;
-                height: 7%;
-                background-color: rgba(4, 4, 4, 0.03);
+            justify-content: space-between;
+            align-items: stretch;
+            .card-data {
+                flex: 0 0 20%;
+                background-color: rgba(240, 240, 240, 1) !important;
                 display: flex;
                 flex-direction: row;
-                overflow: hidden;
-                align-items: stretch;
-                padding: 0 2%;
                 justify-content: space-between;
-                div.title {
-                    flex: 0 0 40%;
+                align-items: stretch;
+                position: relative;
+                overflow: hidden;
+                div.line {
+                    position: absolute !important;
+                    top: 0;
+                }
+                >div.details {
+                    flex: 1 0 auto;
                     display: flex;
-                    flex-direction: row;
-                    justify-content: flex-start;
-                    align-items: center;
-                    span {
-                        flex: 1 0;
-                        color: $primary-color;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: flex-start;
+                    width: 60% !important;
+                    height: 100%;
+                    z-index: 4;
+                    padding-left: 2%;
+                    margin-left: 2% !important;
+                    background-color: transparent !important;
+                    span.title {
+                        color: $primary-color !important;
+                        font-size: 120%;
+                        flex: 0 0 auto;
+                    }
+                    span.subtitle {
+                        color: $primary-color !important;
+                        flex: 0 0 auto;
                         font-size: 90%;
                     }
+                    div.active-data {
+                        width: 95%;
+                        padding: 3% 0 0 0;
+                        border-top: 0.5px solid rgba(4, 4, 4, 0.5);
+                        margin-top: 3%;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        align-items: center;
+                        span.value {
+                            color: $primary-color !important;
+                            font-size: 70%;
+                            flex: 0 0 auto;
+                            text-align: right;
+                        }
+                        span.title {
+                            color: $primary-color !important;
+                            flex: 0 0 auto;
+                            text-align: left;
+                            font-size: 70%;
+                        }
+                    }
                 }
-                div.filter {
-                    flex: 1 0;
+                >div.badge {
+                    margin-left: 5%;
+                    flex: 0 0 20%;
+                    z-index: 5;
+                    height: 100%;
+                    background-color: transparent !important;
                     display: flex;
                     flex-direction: row;
-                    justify-content: flex-start;
-                    align-items: center;
+                    justify-content: center;
+                    align-items: flex-start;
                     svg {
+                        flex:1 0;
+                         height: 100% !important;
+                        width: 100% !important;
                         fill: $primary-color !important;
-                        opacity: 1;
-                        width: 15%;
-                        flex: 0 0 15%;
-                    }
-                    >.search {
-                        flex: 1 0;
-                        width: 80%!important;
-                        >div {
-                            font-size: 80% !important;
-                        }
-                        input {
-                            font-size: 80% !important;
-                            color: $primary-color !important;
-                        }
                     }
                 }
             }
-            div.body {
-                flex-direction: column;
-                flex: 1 0 auto;
+            .card-item {
+                background-color: rgb(250, 250, 250) !important;
+                flex: 0 0 79%;
                 display: flex;
-                justify-content: flex-start;
-                align-items: stretch;
-                >div.table-head {
-                    order: 1;
-                    flex: 0 0 2vw;
+                flex-direction: column;
+                position: relative;
+                div.head {
+                    flex: 0 0 7%;
+                    height: 7%;
+                    background-color: rgba(4, 4, 4, 0.03);
                     display: flex;
                     flex-direction: row;
-                    justify-content: flex-start;
+                    overflow: hidden;
                     align-items: stretch;
-                    background-color: rgba(0, 0, 0, 0.1);
-                    span {
-                        font-size: 70%;
-                        text-transform: uppercase;
-                        letter-spacing: 120%;
-                        color: black;
-                        opacity: 0.6;
-                    }
-                    >div.id {
-                        flex: 0 0 15%;
+                    padding: 0 2%;
+                    justify-content: space-between;
+                    div.title {
+                        flex: 0 0 40%;
                         display: flex;
-                        justify-content: center;
+                        flex-direction: row;
+                        justify-content: flex-start;
                         align-items: center;
-                        >span {
-                            flex: 1 1 auto;
-                            text-align: center;
+                        span {
+                            flex: 1 0;
+                            color: $primary-color;
+                            font-size: 90%;
                         }
                     }
-                    >div:hover {
-                        background-color: rgba(0, 0, 0, 0.2);
-                    }
-                    >div.id:hover {
-                        background-color: transparent;
-                        cursor: default;
-                    }
-                    >div {
-                        padding: 0 2%;
-                        flex: 1 1 0;
+                    div.filter {
+                        flex: 1 0;
                         display: flex;
-                        justify-content: center;
+                        flex-direction: row;
+                        justify-content: flex-start;
                         align-items: center;
-                        cursor: pointer;
-                        >div.sorter {
-                            max-width: 25px;
-                            height: 100%;
-                            width: 10%;
-                            position: relative;
-                            flex: 1 0 0;
+                        svg {
+                            fill: $primary-color !important;
+                            opacity: 1;
+                            width: 15%;
+                            flex: 0 0 15%;
+                        }
+                        >.search {
+                            flex: 1 0;
+                            width: 80%!important;
+                            >div {
+                                font-size: 80% !important;
+                            }
+                            input {
+                                font-size: 80% !important;
+                                color: $primary-color !important;
+                            }
+                        }
+                    }
+                }
+                div.body {
+                    flex-direction: column;
+                    flex: 1 0 auto;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: stretch;
+                    >div.table-head {
+                        order: 1;
+                        flex: 0 0 2vw;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: flex-start;
+                        align-items: stretch;
+                        background-color: rgba(0, 0, 0, 0.1);
+                        span {
+                            font-size: 70%;
+                            text-transform: uppercase;
+                            letter-spacing: 120%;
+                            color: black;
+                            opacity: 0.6;
+                        }
+                        >div.id {
+                            flex: 0 0 15%;
                             display: flex;
                             justify-content: center;
                             align-items: center;
-                            margin-right: 3%;
-                            svg {
-                                height: 15px !important;
-                                flex: 1 0 auto;
-                                color: black;
-                                opacity: 0.6;
+                            >span {
+                                flex: 1 1 auto;
+                                text-align: center;
                             }
                         }
-                        >span {
-                            flex: 1 1 auto;
-                            text-align: start;
+                        >div:hover {
+                            background-color: rgba(0, 0, 0, 0.2);
                         }
-                    }
-                }
-                >div.list {
-                    order: 2;
-                    flex: 1 0 90%;
-                    div.nodata{
-                        flex:1 0 0;
-                        height:100%;
-                        background-color:rgba(4, 4, 4, 0.09);
-                        display:flex;
-                        flex-direction: row;
-                        justify-content: center;
-                        align-items: center;
-                        >span{
-                            font-size:90%;
-                            color: rgba(4,4,4,0.4);
-                            text-transform: uppercase;
-                            letter-spacing: 150%;
+                        >div.id:hover {
+                            background-color: transparent;
+                            cursor: default;
                         }
-                    }
-                    >div.item:hover {
-                        background-color: rgba(4, 4, 4, 0.2);
-                    }
-                    >div.item.false {
-                        display: none;
-                    }
-                    .active.item{
-                        background-color:$primary-color !important;;
-                        color:white !important;
-                    }
-                    .item {
-                        height: 8% !important;
-                        cursor: pointer;
-                        border-bottom: 0.5px solid rgba(0, 0, 0, 0.1) !important;
-                        border-top: 0.5px solid rgba(0, 0, 0, 0.1) !important;
-                        display: flex !important;
-                        flex-direction: row !important;
-                        justify-content: flex-start !important;
-                        align-items: stretch !important;
                         >div {
-                            width: 100%;
+                            padding: 0 2%;
+                            flex: 1 1 0;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            cursor: pointer;
+                            >div.sorter {
+                                max-width: 25px;
+                                height: 100%;
+                                width: 10%;
+                                position: relative;
+                                flex: 1 0 0;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                margin-right: 3%;
+                                svg {
+                                    height: 15px !important;
+                                    flex: 1 0 auto;
+                                    color: black;
+                                    opacity: 0.6;
+                                }
+                            }
+                            >span {
+                                flex: 1 1 auto;
+                                text-align: start;
+                            }
+                        }
+                    }
+                    >div.list {
+                        order: 2;
+                        flex: 1 0 90%;
+                        div.nodata {
+                            flex: 1 0 0;
+                            height: 100%;
+                            background-color: rgba(4, 4, 4, 0.09);
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: center;
+                            align-items: center;
+                            >span {
+                                font-size: 90%;
+                                color: rgba(4, 4, 4, 0.4);
+                                text-transform: uppercase;
+                                letter-spacing: 150%;
+                            }
+                        }
+                        >div.item:hover {
+                            background-color: rgba(4, 4, 4, 0.2);
+                        }
+                        >div.item.false {
+                            display: none;
+                        }
+                        .active.item {
+                            background-color: $primary-color !important;
+                            ;
+                            color: white !important;
+                        }
+                        .item {
+                            height: 8% !important;
+                            cursor: pointer;
+                            border-bottom: 0.5px solid rgba(0, 0, 0, 0.1) !important;
+                            border-top: 0.5px solid rgba(0, 0, 0, 0.1) !important;
                             display: flex !important;
                             flex-direction: row !important;
                             justify-content: flex-start !important;
                             align-items: stretch !important;
                             >div {
-                                padding:0 !important;
                                 width: 100%;
                                 display: flex !important;
                                 flex-direction: row !important;
                                 justify-content: flex-start !important;
                                 align-items: stretch !important;
-                                span {
-                                    font-size: 80%;
-                                }
-                                >div.id {
-                                    flex: 0 0 15%;
-                                    display: flex;
-                                    justify-content: center;
-                                    align-items: center;
-                                    >span {
-                                        flex: 1 0 auto;
-                                        text-align: center;
-                                    }
-                                }
                                 >div {
-                                    overflow: hidden;
-                                    text-overflow: ellipsis;
-                                    white-space: nowrap;
-                                    padding: 0 2% !important;
-                                    flex: 1 1 0;
-                                    display: flex;
-                                    justify-content: center;
-                                    align-items: center;
-                                    >span {
-                                        flex: 1 1 auto;
-                                        text-align: start;
-                                        word-wrap: break-word;
+                                    padding: 0 !important;
+                                    width: 100%;
+                                    display: flex !important;
+                                    flex-direction: row !important;
+                                    justify-content: flex-start !important;
+                                    align-items: stretch !important;
+                                    span {
+                                        font-size: 80%;
+                                    }
+                                    >div.id {
+                                        flex: 0 0 15%;
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                        >span {
+                                            flex: 1 0 auto;
+                                            text-align: center;
+                                        }
+                                    }
+                                    >div {
+                                        overflow: hidden;
                                         text-overflow: ellipsis;
+                                        white-space: nowrap;
+                                        padding: 0 2% !important;
+                                        flex: 1 1 0;
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                        >span {
+                                            flex: 1 1 auto;
+                                            text-align: start;
+                                            word-wrap: break-word;
+                                            text-overflow: ellipsis;
+                                        }
                                     }
                                 }
                             }
                         }
                     }
                 }
-            }
-            div.list {
-                display: block;
-                flex: 1 0 auto;
-                height: auto !important;
-                width: auto !important;
+                div.list {
+                    display: block;
+                    flex: 1 0 auto;
+                    height: auto !important;
+                    width: auto !important;
+                }
             }
         }
-    }
-    div.column:first-child {
-        margin-left: 0%;
-    }
-    div.column:last-child {
-        margin-right: 0%;
+        div.column:first-child {
+            margin-left: 0%;
+        }
+        div.column:last-child {
+            margin-right: 0%;
+        }
     }
 }

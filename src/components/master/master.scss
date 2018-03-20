@@ -6,107 +6,145 @@ div.master-container {
     height: 100%;
     width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     background-color: rgba(4, 4, 4, 0.02);
-    >div.head {
-        background-color: $primary-color;
-        min-height: 25%;
-        flex: 0 1 auto;
+    >div.sidebar {
+        background-color: rgba(4, 4, 4, 0.5);
+        flex: 0 0 15%;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         align-items: stretch;
-        >div.toolbar {
-            flex: 0 0 1;
+        >div.title {
+            flex: 0 0 7%;
             display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: stretch;
-            min-height: 50%;
-            >div.search-bar {
-                flex: 0 1 20%;
-                margin-right: 2%;
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                align-items: center;
-                border-bottom: 1px solid white;
-                min-height: 40%;
-                height: 35%;
-                padding-top: 0.75%;
-                .text-icon {
-                    flex: 0 0 10%;
-                    fill: white !important;
-                    height: 50% !important;
-                    margin-top: 1%;
-                }
-                .main-search-input {
-                    flex: 1 0 10%;
-                    margin-top: 2%;
-                    padding-left: 2%;
-                    >div {
-                        font-size: 120% !important;
-                        font-weight: normal !important;
-                        color: rgba(255, 255, 255, 0.8) !important;
-                    }
-                    input {
-                        color: white !important;
-                        font-size: 120% !important;
-                    }
-                }
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            >span {
+                font-size: 100%;
+                text-transform: uppercase;
+                letter-spacing: 0.35em;
+                margin: auto;
+                color: white;
             }
-            >div.title {
-                flex: 0 1 20%;
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                align-items: center;
-                span {
-                    color: white; // margin:auto;
-                    font-size: 200%;
+        }
+        >div.menu {
+            flex: 1 0;
+            >div {
+                >div.menulist {
+                    flex: 1 0;
+                    padding: 0 !important;
+                    .itm {
+                        width: 100.5% !important;
+                        border-left: 5px solid transparent !important;
+                        color: white !important;
+                        font-size: 90% !important;
+                        svg {
+                            fill: white !important;
+                        }
+                    }
+                    .itm.active {
+                        background-color: rgba(4, 4, 4, 0.3) !important;
+                        border-left: 5px solid rgba(255, 255, 255, 0.5) !important;
+                        color: white !important;
+                    }
                 }
             }
         }
-        >div.avatar {
-            position: relative;
-            flex: 1 0 auto;
+    }
+    >div.body {
+        flex: 1 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+        >div.header {
+            flex: 0 0 7%;
+            border-bottom: 0.5px solid rgba(4, 4, 4, 0.5);
             display: flex;
             flex-direction: row;
             justify-content: flex-start;
-            align-items: stretch;
-            >div.profile {
-                flex: 0 0 20%;
+            align-items: center;
+            position: relative;
+            >div.search-bar {
+                margin-left: 1%;
+                height: 100%;
+                width: 80%;
+                flex: 0 1 80%;
                 display: flex;
                 flex-direction: row;
-                justify-content: center;
+                justify-content: flex-start;
                 align-items: center;
-                >div.details {
+                >div{
+                    width:100% !important;
+                    height:100% !important;
                     display: flex;
-                    flex-direction: column;
+                    flex-direction: row;
                     justify-content: flex-start;
-                    align-items: flex-start;
-                    width: 60% !important;
-                    height:30%;
-                    z-index: 4;
-                    padding-left: 2%;
-                    margin-left: 2% !important;
-                    background-color: transparent !important;
-                    span.title {
-                        color: rgba(255, 255, 255, 0.9) !important;
-                        font-size: 120%;
-                        flex:1 0 auto;
+                    align-items: center; height: 60% !important;
+                }
+                .main-search-input {
+                    flex: 1 0;
+                    width:100% !important;
+                    height:100% !important;
+                    padding-left: 1%;
+                    padding-right:5%;
+                    >div {
+                        bottom:0 !important;
+                        font-size: 120% !important;
+                        font-weight: normal !important;
+                        color: rgba(4, 4, 4, 0.6) !important;
                     }
-                    span.subtitle{
-                        color: rgba(255, 255, 255, 0.7) !important;
-                        flex:1 0 auto;
-                        font-size:90%;
+                    input {
+                        color: rgba(4, 4, 4, 0.8) !important;
+                        font-size: 120% !important;
+                        width:98% !important;
+                    }
+                }
+                }
+                .text-icon {
+                    height:50% !important; 
+                    flex: 0 0 5%;
+                    fill: rgba(4, 4, 4, 0.6) !important;
+                   
+            }
+            >div.avatar{
+                flex: 1 0;
+                height:100%;
+                display:flex;
+                flex-direction: row;
+                justify-content: flex-end;
+                align-items: center;
+                margin-right:1%;
+                display:flex;
+                flex-direction: row;
+                justify-content: flex-end;
+                align-items: center;
+                >div.detail{
+                    flex:1 0;
+                    margin-right:5%;
+                    height:100%;
+                    flex-direction: row;
+                    justify-content: flex-end;
+                    align-items: center;
+                    display:flex;
+                    >span{
+                        flex:0;
+                        font-size:80%;
+                        width:100%;
+                        text-align:right;
+                        color:rgba(4,4,4,0.6);
+                        // text-transform: uppercase;
+                        // letter-spacing: 0.05em;
                     }
                 }
                 >div.badge {
-                    height: 50px;
+                    flex:0 0 auto;
+                    height: 30px;
                     z-index: 5;
-                    width: 50px;
-                    background-color: transparent !important;
+                    width: 30px;
+                    background-color: rgba(4,4,4,0.1) !important;
                     display: flex;
                     flex-direction: row;
                     justify-content: center;
@@ -114,64 +152,18 @@ div.master-container {
                     svg {
                         height: 50% !important;
                         width: 50% !important;
-                        fill: rgba(255, 255, 255, 0.7) !important;
-                    }
-                }
-            }
-        }
-    }
-    >div.body {
-        flex: 1 1 auto;
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        align-items: stretch;
-        >div.sidebar {
-            min-width: 20%;
-            flex: 0 0 20%;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: stretch;
-            >div.head {
-                flex: 0 0 5%;
-            }
-            >div {
-                flex: 1 0 auto;
-                width: 100% !important;
-                >div.menulist {
-                    border-top: 0.5px solid rgba(4, 4, 4, 0.2);
-                    padding: 0 !important;
-                    .itm {
-                        width: 100.5% !important; // border-radius:0 5px 5px 0;
-                        border-left: 5px solid transparent !important;
-                        color: rgba(4, 4, 4, 0.8) !important;
-                        font-size: 90% !important;
-                        svg {
-                            fill: $primary-color !important;
-                        }
-                    }
-                    .itm.active {
-                        border-left: 5px solid $primary-color !important;
-                        color: $primary-color !important;
-                        font-weight: bold !important;
+                        fill: rgba(4,4,4, 0.4) !important;
                     }
                 }
             }
         }
         >div.content {
-            border-radius: 1%;
-            position: absolute;
-            left: 20%;
-            width: 78%;
-            height: 89.5%;
-            top: 10%;
-            display: flex;
+            flex: 1 0;
+            display:flex;
+            flex-direction: row;
             justify-content: flex-start;
             align-items: stretch;
-            >div{
-                flex: 1 0;
-            }
+            background-color: rgba(4, 4, 4, 0.08);
         }
     }
 }

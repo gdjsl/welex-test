@@ -22,10 +22,9 @@ import {
 import Dashboard from '../dashboard/dashboard';
 import Users from '../users/users';
 import Projects from '../projects/projects';
+import PurchaseOrders from '../po/po';
+import DeliveryReceipts from '../dr/dr';
 import './master.scss';
-
-const PurchaseOrders = () => (<span>Purchase Orders</span>);
-const DeliveryReceipts = () => (<span>Delivery Receipts</span>);
 
 const dataset = [
     "Daniel Mejia",
@@ -89,38 +88,11 @@ class Master extends React.Component {
                     autoHideDuration={4000}
                     onRequestClose={this.handleRequestClose}
                 />
-                <div className="head">
-                    <div className="toolbar">
-                        <div className="title">
-                            <span>Welex</span>
-                        </div>
-                        <div className="search-bar">
-                            <SearchIcon className="text-icon" />
-                            <AutoComplete className="main-search-input"
-                                floatingLabelText=""
-                                hintText="Search"
-                                underlineShow={false}
-                                filter={AutoComplete.fuzzyFilter}
-                                dataSource={dataset}
-                                maxSearchResults={5}
-                                onNewRequest={this.autocompleteFilter}
-                            />
-                        </div>
+                <div className="sidebar">
+                    <div className="title">
+                        <span>Welex</span>
                     </div>
-                    <div className="avatar">
-                        <div className="profile">
-                            <Paper className="badge" zDepth={1} circle={true}>
-                                <AdminIcon />
-                            </Paper>
-                            <div className="details">
-                                <span className="title">Administrator</span>
-                                <span className="subtitle">Dashboard</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="body">
-                    <div className="sidebar">
+                    <div className="menu">
                         <Menu className="menulist">
                             <MenuItem className={this.checkActive("/dashboard")} onClick={() => { this.props.history.push('/dashboard'); }} leftIcon={<DashboardIcon />}>Dashboard</MenuItem>
                             <MenuItem className={this.checkActive("/users")} onClick={() => { this.props.history.push('/users'); }} leftIcon={<UsersIcon />}>Users</MenuItem>
@@ -128,6 +100,30 @@ class Master extends React.Component {
                             <MenuItem className={this.checkActive("/po")} onClick={() => { this.props.history.push('/po'); }} leftIcon={<POIcon />}>Purchase Orders</MenuItem>
                             <MenuItem className={this.checkActive("/dr")} onClick={() => { this.props.history.push('/dr'); }} leftIcon={<DRIcon />}>Delivery Reports</MenuItem>
                         </Menu>
+                    </div>
+                </div>
+                <div className="body">
+                    <div className="header">
+                        <div className="search-bar">
+                            <SearchIcon className="text-icon" />
+                            <AutoComplete className="main-search-input"
+                                floatingLabelText=""
+                                hintText="Search User, Project, Purchase Order or Delivery Receipt"
+                                underlineShow={false}
+                                filter={AutoComplete.fuzzyFilter}
+                                dataSource={dataset}
+                                maxSearchResults={5}
+                                onNewRequest={this.autocompleteFilter}
+                            />
+                        </div>
+                        <div className="avatar">
+                            <div className="detail">
+                                <span>Administrator</span>
+                            </div>
+                            <Paper className="badge" zDepth={0} circle={true}>
+                                <AdminIcon />
+                            </Paper>
+                        </div>
                     </div>
                     <div className="content">
                         <Route path="/users" component={Users} />
@@ -138,7 +134,7 @@ class Master extends React.Component {
                     </div>
                 </div>
             </div>
-        );
+        )
     }
 }
 export default withRouter(Master);

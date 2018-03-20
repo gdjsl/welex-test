@@ -4,7 +4,14 @@ import ReactDOM from 'react-dom';
 class Projects extends React.Component{
     render(){
         return(
-            <h1>Projects</h1>
+            <div className="route-container">
+                <div className="head">
+                    <div className="title">
+                        <span>Projects</span>
+                    </div>
+                </div>
+                <div className="body"></div>
+            </div>
         );
     }
 }

@@ -24,50 +24,112 @@ class Dashboard extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            error: null,
-            isLoaded: false,
-            items: [],
-            tableattr: {
-                users:{
-                    namefilter:""
-                }
-            }
-        };
+            selectedUser: null,
+            selectedProject: null,
+            selectedPO: null,
+            prefilterProj: null,
+            prefilterPO: null,
+            prefilterDR: null,
+        }
+        this.chooseUser = this.chooseUser.bind(this);
+        this.chooseProject = this.chooseProject.bind(this);
+        this.choosePO = this.choosePO.bind(this);
     }
-    // ChangeNameFilter(event){
-    //     this.setState({
-    //         tableattr:{
-    //             users:{
-    //                 namefilter:event.target.value
-    //             }
-    //         }
-    //     })
-    // }
-    componentDidMount() {
-        fetch("https://jsonplaceholder.typicode.com/users")
-            .then(res => res.json())
-            .then(
-                (result) => {
-                    console.log(map(result,function(f){f.visible=true;return f;}));
-                    this.setState({
-                        isLoaded: true,
-                        items: map(result,function(f){f.visible=true;return f;})
-                    });
-                },
-                (error) => {
-                    console.log("error in getting data", error);
-                    this.setState({
-                        isLoaded: true,
-                        error
-                    });
-                }
-            )
+    chooseUser(o) {
+        // console.log("this is from dashboard.js",o);
+        if (o !== this.state.selectedUser)
+            this.setState({
+                selectedUser: o,
+                prefilterProj: o,
+                selectedProject: null,
+                prefilterPO: null,
+                selectedPO: null,
+                prefilterDR: null
+            });
+        else {
+            this.setState({
+                selectedUser: null,
+                prefilterProj: null,
+                selectedProject: null,
+                prefilterPO: null,
+                selectedPO: null,
+                prefilterDR: null
+            });
+        }
+    }
+    chooseProject(o) {
+        // console.log("this is from dashboard.js",o);
+        if (o !== this.state.selectedProject)
+            this.setState({
+                selectedProject: o,
+                prefilterPO: o,
+                selectedPO: null,
+                prefilterDR: null
+            });
+        else {
+            this.setState({
+                selectedProject: null,
+                prefilterPO: null,
+                selectedPO: null,
+                prefilterDR: null
+            });
+        }
+    }
+    choosePO(o) {
+        // console.log("this is from dashboard.js",o);
+        if (o !== this.state.selectedPO)
+            this.setState({
+                selectedPO: o,
+                prefilterDR: o
+            });
+        else {
+            this.setState({
+                selectedPO: null,
+                prefilterDR: null
+            });
+        }
     }
     render() {
+        // console.log("this is from dashboard.js render()",this.state);
         return (
             <div className="dashboard-container">
-                <LoaderOverlay show={this.state.isLoaded} />
-                <CardList dataset={this.state.items} cols={["id","name","visible"]} filterables={["name","username"]}/>
+                <CardList
+                    url="https://jsonplaceholder.typicode.com/users"
+                    icon={<UsersIcon />}
+                    clickevent={this.chooseUser}
+                    selected={this.state.selectedUser}
+                    title="Users"
+                    activedata={false}
+                    cols={["id", "name"]}
+                    filterables={["name"]} />
+                <CardList
+                    url="https://jsonplaceholder.typicode.com/users"
+                    icon={<ProjectsIcon />}
+                    clickevent={this.chooseProject}
+                    selected={this.state.selectedProject}
+                    prefilter={this.state.prefilterProj}
+                    title="Projects"
+                    activedata={true}
+                    cols={["id", "email"]}
+                    filterables={["email"]} />
+                <CardList
+                    url="https://jsonplaceholder.typicode.com/users"
+                    icon={<POIcon />}
+                    clickevent={this.choosePO}
+                    selected={this.state.selectedPO}
+                    prefilter={this.state.prefilterPO}
+                    title="Purchase Orders"
+                    activedata={true}
+                    cols={["id", "website"]}
+                    filterables={["website"]} />
+                <CardList
+                    url="https://jsonplaceholder.typicode.com/users"
+                    icon={<DRIcon />}
+                    prefilter={this.state.prefilterDR}
+                    title="Delivery Reports"
+                    activedata={false}
+                    cols={["id", "phone"]}
+                    filterables={["phone"]} />
             </div>
         );
     }
